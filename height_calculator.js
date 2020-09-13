@@ -1,11 +1,11 @@
 window.onload=function() {
-	feetObj = document.getElementById('feet');
-	inchesObj = document.getElementById('inches');
-	resultsObj = document.getElementById('results');
-	document.getElementById('clear').onclick = resetInputs;
-	document.getElementById('convert').onclick = calcResults;
+	feetObj = document.getElementById('txtFeet');
+	inchesObj = document.getElementById('txtInches');
+	resultsObj = document.getElementById('txtResults');
+	document.getElementById('btnReset').onclick = resetInputs;
+	document.getElementById('btnCalc').onclick = calcResults;
 		}
-	function clear() {
+	function resetInputs() {
         feetObj.value = '';
 		inchesObj.value = '';
 		resultsObj.innerHTML = '';
@@ -13,10 +13,10 @@ window.onload=function() {
     function calcResults () {
 		var feet = new Number(feetObj.value);
         var inches = new Number(inchesObj.value);
-       resultsObj.innerHTML = '';
+		resultsObj.innerHTML = '';
         if(isNaN(feet) || isNaN(inches)) {
 			alert('Invalid feet or inch');
             return;
         }
-		resultsObj.innerHTML = feet*Math.pow(inches,2)/800;
+		 resultsObj.innerHTML = ((feet*12)+inches)*2.54 + 'cm';
 	}
